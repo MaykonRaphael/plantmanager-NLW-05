@@ -29,7 +29,7 @@ const emojis = {
 export function Confirmation(){
 
     const navigation = useNavigation();
-    const routes = useRoute();
+    const route = useRoute();
 
     const {
         title,
@@ -37,7 +37,7 @@ export function Confirmation(){
         buttonTitle,
         icon,
         nextScreen
-    } = routes.params as Params;
+    } = route.params as Params;
 
     function handleMoveOn(){
         navigation.navigate(nextScreen);
@@ -51,9 +51,11 @@ export function Confirmation(){
                 <Text style={styles.emoji}>
                     {emojis[icon]}
                 </Text>
+
                 <Text style={styles.title}>
                     {title}
                 </Text>
+
                 <Text style={styles.subtitle}>
                     {subtitle}
                 </Text>
@@ -66,7 +68,6 @@ export function Confirmation(){
                 </View>
 
             </View>
-
 
         </SafeAreaView>
         </>
@@ -103,8 +104,7 @@ const styles = StyleSheet.create({
         color: Colors.heading
     },
     emoji: {
-        fontSize: 78,
-        paddingVertical: 20
+        fontSize: 78
     },
     footer: {
         width: '100%',

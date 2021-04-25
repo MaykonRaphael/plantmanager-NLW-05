@@ -15,10 +15,10 @@ import {
 import { useNavigation } from '@react-navigation/core';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
+import { Button } from '../components/Button';
+
 import Colors from '../styles/Colors';
 import fonts from '../styles/fonts';
-
-import { Button } from '../components/Button';
 
 export function UserIdentification(){
 
@@ -28,18 +28,18 @@ export function UserIdentification(){
     const [isFilled, setIsFilled] = useState(false);
     const [name, setName] = useState<string>();
 
-    function handleInputBur(){
+    function handleInputBlur(){
         setIsFocused(false);
         setIsFilled(!!name);
     }
 
-    function handleIputFocus(){
+    function handleInputFocus(){
         setIsFocused(true);
     }
 
     function handleInputChange(value: string){
-        setIsFilled(!!value);
         setName(value);
+        setIsFilled(!!value);
     }
 
     async function handleSubmit(){
@@ -90,8 +90,8 @@ export function UserIdentification(){
                                     { borderColor: Colors.green}
                                 ]}
                                 placeholder="Digite um nome"
-                                onBlur={handleInputBur}
-                                onFocus={handleIputFocus}
+                                onBlur={handleInputBlur}
+                                onFocus={handleInputFocus}
                                 onChangeText={handleInputChange}
                             />
                             
@@ -114,8 +114,8 @@ const styles = StyleSheet.create({
     container: {
         flex: 1,
         width: '100%',
-        alignItems: 'center',
         justifyContent: 'space-around',
+        alignItems: 'center',
         paddingTop: Platform.OS === 'android' ? StatusBar.currentHeight : 0
     },
     content: {
@@ -146,10 +146,11 @@ const styles = StyleSheet.create({
     },
     title: {
         fontSize: 24,
+        lineHeight: 32,
         textAlign: 'center',
         color: Colors.heading,
-        lineHeight: 32,
-        fontFamily: fonts.heading
+        fontFamily: fonts.heading,
+        marginTop: 20
     },
     footer: {
         width:'100%',

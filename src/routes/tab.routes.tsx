@@ -1,6 +1,7 @@
 import React from 'react';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { MaterialIcons } from '@expo/vector-icons';
+import { Platform } from 'react-native';
 
 import { PlantSelect } from '../pages/PlantSelect';
 import { MyPlants } from '../pages/MyPlants';
@@ -9,7 +10,7 @@ import Colors from '../styles/Colors';
 
 const AppTab = createBottomTabNavigator();
 
-const AuthRoutes = () => {
+const AuthRoutes: React.FC = () => {
     return(
         <AppTab.Navigator
             tabBarOptions={{
@@ -17,8 +18,7 @@ const AuthRoutes = () => {
                 inactiveTintColor: Colors.heading,
                 labelPosition: 'beside-icon',
                 style: {
-                    paddingVertical: 20,
-                    height: 80
+                    height: 60
                 },
             }}
         >

@@ -6,12 +6,12 @@ import {
     FlatList,
     ActivityIndicator
 } from 'react-native';
+import { useNavigation } from '@react-navigation/core';
 
 import { EnvironmentButton } from '../components/EnvironmentButton';
 import { Header } from '../components/Header';
 import { PlantCardPrimary } from '../components/PlantCardPrimary';
 import { Load } from '../components/Load';
-import { useNavigation } from '@react-navigation/core';
 import { PlantProps } from '../libs/storage';
 
 import api from '../services/api';
@@ -106,6 +106,7 @@ export function PlantSelect() {
 
     if (loading)
         return <Load/>
+        
     return(
         <View style={styles.container}>
             <View style={styles.header}>
