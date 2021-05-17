@@ -2,7 +2,7 @@
   "expo": {
     "name": "plantmanager",
     "slug": "plantmanager",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
     "splash": {
@@ -27,6 +27,8 @@
     },
     "web": {
       "favicon": "./assets/favicon.png"
-    }
+    },
+    "description": "Manage your plants",
+    "githubUrl": "https://github.com/MaykonRaphael/plantmanager-NLW-05"
   }
 }

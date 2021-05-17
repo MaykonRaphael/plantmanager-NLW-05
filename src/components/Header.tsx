@@ -8,7 +8,7 @@ import {
 import { getStatusBarHeight } from 'react-native-iphone-x-helper';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
-import userImg from '../assets/Maykon.png';
+import userImg from '../assets/plant.png';
 import Colors from '../styles/Colors';
 import fonts from '../styles/fonts';
 
@@ -19,6 +19,7 @@ export function Header(){
     useEffect(() => {
         async function loadStorageUserName() {
             const user = await AsyncStorage.getItem('@plantmanager:user');
+
             setUserName(user || '');
         }
 
@@ -37,7 +38,7 @@ export function Header(){
 
             <Image source={userImg} style={styles.image}/>
         </View>
-    )
+    );
 }
 
 const styles = StyleSheet.create({
