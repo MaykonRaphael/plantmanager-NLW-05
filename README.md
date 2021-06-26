@@ -1,4 +1,62 @@
-# plantmanager-NLW-05
-Project developed at NLW#5
+<h1 align="center">
+    <img alt="PlantManager" title="PlantManager" src=".github/logo.svg" />
+</h1>
 
-json-server ./src/services/server.json --host 192.168.100.16 --port 3333 --delay 700
+<p align="center">
+  <a href="#technologies">Technologies</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+  <a href="#-layout">Getting started</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+  <a href="#-project">Project</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+  <a href="#-layout">Layout</a>
+</p>
+
+<br>
+
+<p align="center">
+  <img alt="Moveit" src=".github/plantmanager-preview.png">
+</p>
+
+---
+
+## 🧪 Technologies
+
+This project was developed using the following technologies:
+
+- [React Native](https://reactnative.dev/)
+- [Expo](https://expo.io/)
+- [TypeScript](https://www.typescriptlang.org/)
+
+## 🚀 Getting started
+
+Clone the project and access the folder
+
+```bash
+$ git clone https://github.com/MaykonRaphael/plantmanager-NLW-05.git
+$ cd plantmanager-NLW-05
+```
+
+Follow the steps below
+```bash
+# Install the dependencies
+$ yarn install
+
+# Start the project
+$ expo start
+```
+
+## 💻 Project
+
+App to always remember to water your plants 🌱
+
+This is a project developed during the **[Next Level Week]#05(https://nextlevelweek.com/)**, presented by **[@Rocketseat](https://github.com/Rocketseat)** during April 19-25, 2021.
+
+## 🔖 Layout
+
+You can view the project layout through the links below:
+
+- [Layout](https://www.figma.com/file/fDmCMFfK8FMeLI8875B65j/PlantManager) 
+
+Remembering that you need to have a [Figma](http://figma.com/) account to access it.
+
+---
+
+Made by Maykon Raphael 👋
