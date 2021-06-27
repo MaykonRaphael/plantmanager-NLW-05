@@ -1,29 +1,37 @@
 import { Feather } from '@expo/vector-icons';
-import React from 'react';
-import {
-    StyleSheet,
-    Text,
-    View
-} from 'react-native';
+import React, { useState } from 'react';
+import { Text, View } from 'react-native';
 import { RectButton, RectButtonProps } from 'react-native-gesture-handler';
 import Swipeable from 'react-native-gesture-handler/Swipeable';
 import Animated from 'react-native-reanimated';
 import { SvgFromUri } from 'react-native-svg';
 
-import Colors from '../styles/Colors';
-import fonts from '../styles/fonts';
+import { DeleteModal } from '../DeleteModal';
+import { styles } from './styles';
+import { theme } from '../../global/styles/theme';
 
-interface PlantProps extends RectButtonProps {
+interface PlantsProps extends RectButtonProps {
     data: {
         name: string;
         photo: string;
         hour: string;
     };
 
+    openModal: () => void;
     handleRemove: () => void;
 }
 
-export function PlantCardSecondary ({ data, handleRemove, ...rest } : PlantProps) {
+export function PlantCardSecondary ({ data, openModal, handleRemove, ...rest } : PlantsProps) {
+    const [ openDeleteModal, setOpenDeleteModal ] = useState(false);
+
+    function handleOpenDeleteModal() {
+        setOpenDeleteModal(true);
+    }
+
+    function handleCloseDeleteModal() {
+        setOpenDeleteModal(false);
+    }
+
     return(
         <Swipeable
             overshootRight={false}
@@ -32,12 +40,12 @@ export function PlantCardSecondary ({ data, handleRemove, ...rest } : PlantProps
                     <View>
                         <RectButton
                             style={styles.buttonRemove}
-                            onPress={handleRemove}
+                            onPress={handleOpenDeleteModal}
                         >
                             <Feather
                                 name="trash"
                                 size={32}
-                                color={Colors.white}
+                                color={theme.colors.white}
                             />
 
                         </RectButton>
@@ -69,52 +77,13 @@ export function PlantCardSecondary ({ data, handleRemove, ...rest } : PlantProps
                     </Text>
                 </View>
             </RectButton>
-        </Swipeable>
-    )
-}
 
-const styles = StyleSheet.create({
-    container: {
-        width: '100%',
-        paddingHorizontal: 10,
-        paddingVertical: 25,
-        borderRadius: 20,
-        flexDirection: 'row',
-        alignItems: 'center',
-        backgroundColor: Colors.shape,
-        marginVertical: 5
-    },
-    title: {
-        flex: 1,
-        marginLeft: 10,
-        fontFamily: fonts.heading,
-        fontSize: 17,
-        color: Colors.heading
-    },
-    details: {
-        alignItems: 'flex-end'
-    },
-    timeLabel: {
-        fontSize: 16,
-        fontFamily: fonts.text,
-        color: Colors.body_light
-    },
-    time: {
-        marginTop: 5,
-        fontSize: 16,
-        fontFamily: fonts.heading,
-        color: Colors.body_dark
-    },
-    buttonRemove: {
-        width: 100,
-        height: 85,
-        backgroundColor: Colors.red,
-        marginTop: 15,
-        borderRadius: 20,
-        justifyContent: 'center',
-        alignItems: 'center',
-        position: 'relative',
-        right: 20,
-        paddingLeft: 15
-    }
-});
+            <DeleteModal
+                data={data}
+                visible={openDeleteModal}
+                closeModal={handleCloseDeleteModal}
+                handleRemove={handleRemove}
+            />
+        </Swipeable>
+    );
+}

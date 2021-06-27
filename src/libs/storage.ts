@@ -3,7 +3,6 @@ import * as Notifications from 'expo-notifications';
 import { format } from 'date-fns';
 
 export interface PlantProps {
-    
     id: string;
     name: string;
     about: string;
@@ -73,7 +72,7 @@ export async function savePlant(plant: PlantProps): Promise<void> {
         });
 
         const notification = await Notifications.getAllScheduledNotificationsAsync();
-        console.log('######## Notificacoes Agendadas #######', notification);
+        console.log('######## Notificações Agendadas #######', notification);
         
         const data = await AsyncStorage.getItem('@plantmanager:plants');
         const oldPlants = data ? (JSON.parse(data) as StoragePlantProps) : {};

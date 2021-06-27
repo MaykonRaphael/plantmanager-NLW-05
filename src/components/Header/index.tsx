@@ -1,19 +1,15 @@
 import React, {useEffect, useState} from 'react';
 import {
-    StyleSheet,
     Text,
     View,
     Image
 } from 'react-native';
-import { getStatusBarHeight } from 'react-native-iphone-x-helper';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
-import userImg from '../assets/plant.png';
-import Colors from '../styles/Colors';
-import fonts from '../styles/fonts';
+import userImg from '../../assets/plant.png';
+import { styles } from './styles';
 
-export function Header(){
-
+export function Header() {
     const [userName, setUserName] = useState<string>();
 
     useEffect(() => {
@@ -40,30 +36,3 @@ export function Header(){
         </View>
     );
 }
-
-const styles = StyleSheet.create({
-    container: {
-        width: '100%',
-        flexDirection: 'row',
-        justifyContent: 'space-between',
-        alignItems: 'center',
-        paddingVertical: 20,
-        marginTop: getStatusBarHeight()
-    },
-    image: {
-        width: 70,
-        height: 70,
-        borderRadius: 40
-    },
-    greeting: {
-        fontSize: 32,
-        color: Colors.heading,
-        fontFamily: fonts.text
-    },
-    userName: {
-        fontSize: 32,
-        fontFamily: fonts.heading,
-        color: Colors.heading,
-        lineHeight: 40
-    }
-});

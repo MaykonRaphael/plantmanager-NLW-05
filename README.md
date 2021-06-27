@@ -6,7 +6,8 @@
   <a href="#technologies">Technologies</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
   <a href="#-layout">Getting started</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
   <a href="#-project">Project</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
-  <a href="#-layout">Layout</a>
+  <a href="#-layout">Layout</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+  <a href="#-license">License</a>
 </p>
 
 <br>
@@ -47,7 +48,7 @@ $ expo start
 
 App to always remember to water your plants 🌱
 
-This is a project developed during the **[Next Level Week]#05(https://nextlevelweek.com/)**, presented by **[@Rocketseat](https://github.com/Rocketseat)** during April 19-25, 2021.
+This is a project developed during the **[Next Level Week](https://nextlevelweek.com/)#05**, presented by **[@Rocketseat](https://github.com/Rocketseat)** during April 19-25, 2021.
 
 ## 🔖 Layout
 
@@ -57,6 +58,11 @@ You can view the project layout through the links below:
 
 Remembering that you need to have a [Figma](http://figma.com/) account to access it.
 
----
+## 📝 License
 
-Made by Maykon Raphael 👋
+This project is licensed under the MIT License. See the [LICENSE](LICENSE.md) file for details.
+
+---
+<p align="center">
+  Made by Maykon Raphael 👋
+</p>

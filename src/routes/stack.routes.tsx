@@ -1,8 +1,5 @@
 import React from 'react';
-import {
-    createStackNavigator,
-    TransitionPresets
-} from '@react-navigation/stack';
+import { createStackNavigator } from '@react-navigation/stack';
 
 import { Welcome } from '../pages/Welcome';
 import { UserIdentification } from '../pages/UserIdentification';
@@ -10,21 +7,19 @@ import { Confirmation } from '../pages/Confirmation';
 import { PlantSave } from '../pages/PlantSave';
 import AuthRoutes from './tab.routes';
 
-import Colors from '../styles/Colors';
+import { theme } from '../global/styles/theme';
 
 const stackRoutes = createStackNavigator();
 
 const AppRoutes: React.FC = () => (
     <stackRoutes.Navigator
         headerMode="none"
-        screenOption={{
+        screenOptions={{
             cardStyle: {
-                backgroundColor: Colors.white
-            },
-            ...TransitionPresets.SlideFromRightIOS,
+              backgroundColor: theme.colors.white
+            }
         }}
     >
-
         <stackRoutes.Screen
             name="Welcome"
             component={Welcome}
@@ -54,7 +49,6 @@ const AppRoutes: React.FC = () => (
             name="MyPlants"
             component={AuthRoutes}
         />
-
     </stackRoutes.Navigator>
 )
 export default AppRoutes;

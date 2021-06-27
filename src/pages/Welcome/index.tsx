@@ -3,22 +3,18 @@ import {
     SafeAreaView,
     Text,
     Image,
-    StyleSheet,
-    Platform,
     StatusBar,
     TouchableOpacity,
-    Dimensions,
     View
 } from 'react-native';
 import { Feather } from '@expo/vector-icons';
 import { useNavigation } from '@react-navigation/core';
 
-import wateringImg from '../assets/watering.png';
-import Colors from '../styles/Colors';
-import Fonts from '../styles/fonts';
+import wateringImg from '../../assets/watering.png';
+import { theme } from '../../global/styles/theme';
+import { styles } from './styles';
 
 export function Welcome() {
-
     const navigation = useNavigation();
 
     function handleStart() {
@@ -27,7 +23,7 @@ export function Welcome() {
 
     return(
         <>
-        <StatusBar barStyle='dark-content' backgroundColor={Colors.background}/>
+        <StatusBar barStyle='dark-content' backgroundColor={theme.colors.background}/>
         <SafeAreaView style={styles.container}>
             <View style={styles.wrapper}>
                 <Text style={styles.title}>
@@ -55,58 +51,12 @@ export function Welcome() {
                     <Text>
                         <Feather
                             name="chevron-right"
-                            style={styles.buttonicon}
+                            style={styles.buttonIcon}
                         />
                     </Text>
                 </TouchableOpacity>
             </View>
         </SafeAreaView>
         </>
-    )
+    );
 }
-
-const styles = StyleSheet.create({
-    container: {
-        flex: 1,
-        alignItems: 'center',
-        justifyContent: 'space-around',
-        paddingTop: Platform.OS === 'android' ? StatusBar.currentHeight : 0
-    },
-    wrapper: {
-        flex: 1,
-        alignItems: 'center',
-        justifyContent: 'space-around',
-        paddingHorizontal: 20
-    },
-    title: {
-        fontSize: 28,
-        textAlign: 'center',
-        color: Colors.heading,
-        marginTop: 38,
-        fontFamily: Fonts.heading,
-        lineHeight: 34
-    },
-    subtitle: {
-        textAlign: 'center',
-        fontSize: 18,
-        fontFamily: Fonts.text,
-        paddingHorizontal: 20,
-        color: Colors.heading
-    },
-    image: {
-        height: Dimensions.get('window').width * 0.7
-    },
-    button: {
-        backgroundColor: Colors.green,
-        justifyContent: 'center',
-        alignItems: 'center',
-        borderRadius: 16,
-        marginBottom: 10,
-        height: 56,
-        width: 56
-    },
-    buttonicon: {
-        fontSize: 32,
-        color: Colors.white
-    }
-});

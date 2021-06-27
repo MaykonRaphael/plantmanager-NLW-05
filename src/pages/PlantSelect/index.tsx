@@ -2,21 +2,20 @@ import React, { useEffect, useState } from 'react';
 import {
     View,
     Text,
-    StyleSheet,
     FlatList,
     ActivityIndicator
 } from 'react-native';
 import { useNavigation } from '@react-navigation/core';
 
-import { EnvironmentButton } from '../components/EnvironmentButton';
-import { Header } from '../components/Header';
-import { PlantCardPrimary } from '../components/PlantCardPrimary';
-import { Load } from '../components/Load';
-import { PlantProps } from '../libs/storage';
+import { EnvironmentButton } from '../../components/EnvironmentButton';
+import { Header } from '../../components/Header';
+import { PlantCardPrimary } from '../../components/PlantCardPrimary';
+import { Load } from '../../components/Load';
+import { PlantProps } from '../../libs/storage';
 
-import api from '../services/api';
-import Colors from '../styles/Colors';
-import fonts from '../styles/fonts';
+import api from '../../services/api';
+import { styles } from './styles';
+import { theme } from '../../global/styles/theme';
 
 interface EnvironmentProps {
     key: string;
@@ -24,7 +23,6 @@ interface EnvironmentProps {
 }
 
 export function PlantSelect() {
-
     const [environments, setEnvironments] = useState<EnvironmentProps[]>([]);
     const [plants, setPlants] = useState<PlantProps[]>([]);
     const [filteredPlants, setfilteredPlants] = useState<PlantProps[]>([]);
@@ -159,7 +157,7 @@ export function PlantSelect() {
                     }
                     ListFooterComponent={
                         loadingMore
-                        ? <ActivityIndicator color={Colors.green}/>
+                        ? <ActivityIndicator color={theme.colors.green}/>
                         : <></>
                     }
                 />
@@ -168,37 +166,3 @@ export function PlantSelect() {
         </View>
     )
 }
-
-const styles = StyleSheet.create({
-    container: {
-        flex: 1,
-        backgroundColor: Colors.background
-    },
-    header: {
-        paddingHorizontal: 30
-    },
-    title: {
-        fontSize: 17,
-        color: Colors.heading,
-        fontFamily: fonts.heading,
-        lineHeight: 20,
-        marginTop: 15
-    },
-    subtitle: {
-        fontFamily: fonts.text,
-        fontSize: 17,
-        lineHeight: 20,
-        color: Colors.heading
-    },
-    environmentList: {
-        height: 40,
-        justifyContent: 'center',
-        paddingBottom: 5,
-        marginVertical: 32
-    },
-    plants: {
-        flex: 1,
-        paddingHorizontal: 32,
-        justifyContent: 'center'
-    }
-});

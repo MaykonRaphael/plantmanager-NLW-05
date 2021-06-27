@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import {
     SafeAreaView,
-    StyleSheet,
     StatusBar,
     Platform,
     View,
@@ -15,13 +14,12 @@ import {
 import { useNavigation } from '@react-navigation/core';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
-import { Button } from '../components/Button';
+import { Button } from '../../components/Button';
 
-import Colors from '../styles/Colors';
-import fonts from '../styles/fonts';
+import { styles } from './styles';
+import { theme } from '../../global/styles/theme';
 
 export function UserIdentification(){
-
     const navigation = useNavigation();
 
     const [isFocused, setIsFocused] = useState(false);
@@ -57,8 +55,8 @@ export function UserIdentification(){
                 icon: 'smile',
                 nextScreen: 'PlantSelect',
             });
-        }catch{
-            Alert.alert('Nâo foi possivel salvar o seu nome. 😥');
+        } catch(error) {
+            Alert.alert('Nâo foi possível salvar o seu nome. 😥');
         }
     }
 
@@ -87,7 +85,7 @@ export function UserIdentification(){
                                 style={[
                                     styles.input,
                                     (isFocused || isFilled) &&
-                                    { borderColor: Colors.green}
+                                    { borderColor: theme.colors.green}
                                 ]}
                                 placeholder="Digite um nome"
                                 onBlur={handleInputBlur}
@@ -107,54 +105,5 @@ export function UserIdentification(){
             </KeyboardAvoidingView>
         </SafeAreaView>
         </>
-    )
+    );
 }
-
-const styles = StyleSheet.create({
-    container: {
-        flex: 1,
-        width: '100%',
-        justifyContent: 'space-around',
-        alignItems: 'center',
-        paddingTop: Platform.OS === 'android' ? StatusBar.currentHeight : 0
-    },
-    content: {
-        flex: 1,
-        width: '100%'
-    },
-    form: {
-        flex: 1,
-        justifyContent: 'center',
-        paddingHorizontal: 54,
-        alignItems: 'center'
-    },
-    header: {
-        alignItems: 'center'
-    },
-    emoji: {
-        fontSize: 44
-    },
-    input: {
-        borderBottomWidth: 1,
-        borderColor: Colors.gray,
-        color: Colors.heading,
-        width: '100%',
-        fontSize: 18,
-        marginTop: 50,
-        padding: 10,
-        textAlign: 'center'
-    },
-    title: {
-        fontSize: 24,
-        lineHeight: 32,
-        textAlign: 'center',
-        color: Colors.heading,
-        fontFamily: fonts.heading,
-        marginTop: 20
-    },
-    footer: {
-        width:'100%',
-        marginTop: 40,
-        paddingHorizontal: 20
-    }
-});

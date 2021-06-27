@@ -1,17 +1,14 @@
 import React from 'react';
 import {
     SafeAreaView,
-    StyleSheet,
     StatusBar,
-    Platform,
     View,
     Text
 } from 'react-native';
 import { useNavigation, useRoute } from '@react-navigation/core';
 
-import { Button } from '../components/Button';
-import Colors from '../styles/Colors';
-import fonts from '../styles/fonts';
+import { Button } from '../../components/Button';
+import { styles } from './styles';
 
 interface Params {
     title: string;
@@ -26,8 +23,7 @@ const emojis = {
     smile: '😄'
 }
 
-export function Confirmation(){
-
+export function Confirmation() {
     const navigation = useNavigation();
     const route = useRoute();
 
@@ -66,49 +62,8 @@ export function Confirmation(){
                         onPress={handleMoveOn}
                     />
                 </View>
-
             </View>
-
         </SafeAreaView>
         </>
     );
 }
-
-const styles = StyleSheet.create({
-    container: {
-        flex: 1,
-        alignItems: 'center',
-        justifyContent: 'space-around',
-        paddingTop: Platform.OS === 'android' ? StatusBar.currentHeight : 0
-    },
-    content: {
-        flex: 1,
-        justifyContent: 'center',
-        alignItems: 'center',
-        width: '100%',
-        padding: 30
-    },
-    title: {
-        fontSize: 22,
-        fontFamily: fonts.heading,
-        textAlign: 'center',
-        color: Colors.heading,
-        lineHeight: 38,
-        marginTop: 15
-    },
-    subtitle: {
-        fontFamily: fonts.text,
-        textAlign: 'center',
-        fontSize: 17,
-        paddingHorizontal: 10,
-        color: Colors.heading
-    },
-    emoji: {
-        fontSize: 78
-    },
-    footer: {
-        width: '100%',
-        paddingHorizontal: 50,
-        marginTop: 20
-    }
-});
